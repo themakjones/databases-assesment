@@ -17,11 +17,24 @@ Using the `movies_db` database, write the correct SQL queries for each of these 
 
 1.  The title of every movie.
 
+```
+SELECT title FROM movies;
+```
+
 2.  All information on the G-rated movies.
+
+```
+SELECT * FROM movies
+WHERE rating = 'G'
+```
 
 3.  The title and release year of every movie, ordered with the
     oldest movie first.
-    
+
+```
+SELECT title, release_year FROM movies ASC
+```
+
 4.  All information on the 5 longest movies.
 
 5.  A query that returns the columns of `rating` and `total`, tabulating the
@@ -36,7 +49,7 @@ Using the `movies_db` database, write the correct SQL queries for each of these 
 8.  The star first name, star last name, and movie title for every
     matching movie and star pair in the database.
 
-9.  The first and last names of every star who has been in a G-rated movie. The first and last name should appear only once for each star, even if they are in several G-rated movies. *IMPORTANT NOTE*: it's possible that there can be two *different* actors with the same name, so make sure your solution accounts for that.
+9.  The first and last names of every star who has been in a G-rated movie. The first and last name should appear only once for each star, even if they are in several G-rated movies. _IMPORTANT NOTE_: it's possible that there can be two _different_ actors with the same name, so make sure your solution accounts for that.
 
 10. The first and last names of every star along with the number
     of movies they have been in, in descending order by the number of movies. (Similar to #9, make sure
