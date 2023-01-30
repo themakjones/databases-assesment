@@ -25,17 +25,23 @@ SELECT title FROM movies;
 
 ```
 SELECT * FROM movies
-WHERE rating = 'G'
+WHERE rating = 'G';
 ```
 
 3.  The title and release year of every movie, ordered with the
     oldest movie first.
 
 ```
-SELECT title, release_year FROM movies ASC
+SELECT title, release_year FROM movies ASC;
 ```
 
 4.  All information on the 5 longest movies.
+
+```
+SELECT * FROM  movies
+ORDER BY runtime DESC
+LIMIT 10;
+```
 
 5.  A query that returns the columns of `rating` and `total`, tabulating the
     total number of G, PG, PG-13, and R-rated movies.
