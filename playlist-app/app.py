@@ -58,6 +58,14 @@ def add_playlist():
 
     # ADD THE NECESSARY CODE HERE FOR THIS ROUTE TO WORK
 
+    form = PlaylistForm()
+
+    if form.validate_on_submit():
+        name = form.name.data
+        description = form.description.data
+
+        new_playlist = Playlist(name=name, description=description)
+
 
 ##############################################################################
 # Song routes
