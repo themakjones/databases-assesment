@@ -1,7 +1,10 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <h1>Add a form that when submitted creates a new playlist!</h1>
+
+<form action="/playlists/add" method="POST">
+  {{ form.csrf_token }} {{ form.name.label }} {{ form.name(size=20) }}
+  <input type="submit" value="Go" />
+</form>
 
 {% endblock %}

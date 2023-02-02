@@ -7,6 +7,9 @@ from flask_wtf import FlaskForm
 class PlaylistForm(FlaskForm):
     """Form for adding playlists."""
 
+    name = StringField('Name', validators=[InputRequired(message=['Name is required'], Length(min=1, max=30, message=['Name should be between 1 and 30 characters long']))])
+    description = StringField('Description', validators=[Length(max=100, message=['Description cannot be more than 100 characters long'])])
+
     # Add the necessary code to use this form
 
 
