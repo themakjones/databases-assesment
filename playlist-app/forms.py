@@ -17,6 +17,9 @@ class PlaylistForm(FlaskForm):
 class SongForm(FlaskForm):
     """Form for adding songs."""
 
+    title = StringField('Title', validators=[InputRequired(message=['Title is required']), Length(max=50, message=['Title should be less than 50 characters'])])
+    artist = StringField('Artist Name', validators=[InputRequired(message=['Artist name is required']), Length(max=50, message=['Artist name should be less than 50 characters'])])
+
     # Add the necessary code to use this form
 
 
