@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///playlist-app'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 connect_db(app)
 db.create_all()
@@ -20,6 +21,9 @@ app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
 # app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 debug = DebugToolbarExtension(app)
+
+connect_db(app)
+db.create_all()
 
 
 @app.route("/")
@@ -65,6 +69,13 @@ def add_playlist():
         description = form.description.data
 
         new_playlist = Playlist(name=name, description=description)
+
+        db.session.add(new_playlist)
+        db.session.commit()
+
+        return redirect('/')
+
+    return render_template('new_playlist.html', form=form)
 
 
 ##############################################################################

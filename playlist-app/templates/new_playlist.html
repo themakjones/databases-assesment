@@ -3,7 +3,15 @@
 <h1>Add a form that when submitted creates a new playlist!</h1>
 
 <form action="/playlists/add" method="POST">
-  {{ form.csrf_token }} {{ form.name.label }} {{ form.name(size=20) }}
+  {{ form.hidden_tag() }} {% for field in form if field.widget.input_type !=
+  'hidden' %}
+
+  <div>
+    {{ field.label }} {{ field }} {% for error in field.errors %} {{ error }} {%
+    endfor %}
+  </div>
+
+  {% endfor %}
   <input type="submit" value="Go" />
 </form>
 
